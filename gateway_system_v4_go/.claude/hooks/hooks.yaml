@@ -1,0 +1,35 @@
+# Claude Code Hooks Configuration for Go Project
+
+pre_commit:
+  - name: "Go Format"
+    description: "Format Go code before commit"
+    command: "go fmt ./..."
+    enabled: true
+
+  - name: "Go Vet"
+    description: "Run go vet before commit"
+    command: "go vet ./..."
+    enabled: true
+
+  - name: "Run Tests"
+    description: "Run unit tests before commit"
+    command: "go test ./..."
+    enabled: true
+
+post_build:
+  - name: "Generate Docs"
+    description: "Generate API documentation"
+    command: "swag init"
+    enabled: false
+
+on_file_change:
+  - name: "Reload Config"
+    pattern: "config/*.yaml"
+    description: "Reload configuration when YAML files change"
+    action: "notify"
+    message: "Configuration file changed."
+
+custom:
+  - name: "Gateway Health Check"
+    trigger: "on_demand"
+    command: "curl http://localhost:8080/health"
