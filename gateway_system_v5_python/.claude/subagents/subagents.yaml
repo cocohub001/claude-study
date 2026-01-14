@@ -1,0 +1,21 @@
+# Claude Code Subagents Configuration
+
+subagents:
+  - name: "code-reviewer"
+    description: "Reviews Python code"
+    specialization:
+      - Python code review
+      - FastAPI patterns
+      - Async best practices
+
+  - name: "test-runner"
+    description: "Handles testing"
+    specialization:
+      - pytest tests
+      - Coverage analysis
+
+  - name: "gateway-ops"
+    description: "Gateway operations"
+    specialization:
+      - Route management
+      - Health monitoring

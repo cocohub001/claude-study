@@ -1,0 +1,18 @@
+# Claude Code Slash Commands
+
+commands:
+  - name: "/gateway-status"
+    description: "Check gateway health"
+    action: "Check health status"
+
+  - name: "/gateway-routes"
+    description: "List all routes"
+    action: "Display routes"
+
+  - name: "/py-create-router"
+    description: "Create FastAPI router"
+    action: "Generate router"
+
+  - name: "/run"
+    description: "Run the gateway"
+    action: "uvicorn src.main:app"
