@@ -1,0 +1,24 @@
+# Claude Code Hooks Configuration
+
+pre_commit:
+  - name: "Python Format"
+    command: "black src/"
+    enabled: true
+
+  - name: "Lint Check"
+    command: "ruff check src/"
+    enabled: true
+
+  - name: "Type Check"
+    command: "mypy src/"
+    enabled: true
+
+post_build:
+  - name: "Generate Docs"
+    command: "pdoc src/ -o docs/"
+    enabled: false
+
+on_file_change:
+  - name: "Reload Config"
+    pattern: "config/*.yaml"
+    action: "notify"
