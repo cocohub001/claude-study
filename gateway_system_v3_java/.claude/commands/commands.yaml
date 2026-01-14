@@ -1,0 +1,38 @@
+# Claude Code Slash Commands Configuration
+# Custom commands invoked with / prefix
+
+commands:
+  # Gateway Management Commands
+  - name: "/gateway-status"
+    description: "Check gateway health and status"
+    action: "Check the current health status of the gateway, including active routes, error rates, and latency metrics."
+
+  - name: "/gateway-routes"
+    description: "List all configured routes"
+    action: "Display all routes configured in the gateway with their paths, backends, and status."
+
+  - name: "/gateway-add-route"
+    description: "Add a new route"
+    action: "Guide through adding a new route to the gateway. Ask for route ID, path, backend URL, and methods."
+
+  # Development Commands
+  - name: "/java-create-service"
+    description: "Create a new Java service class"
+    action: "Generate a new Spring service class with proper annotations and dependency injection."
+
+  - name: "/java-create-controller"
+    description: "Create a new REST controller"
+    action: "Generate a new Spring REST controller with standard CRUD endpoints."
+
+  - name: "/java-test"
+    description: "Generate unit tests"
+    action: "Generate unit tests for the specified class using JUnit 5 and Mockito."
+
+  # Build Commands
+  - name: "/build"
+    description: "Build the project"
+    action: "Run mvn clean install to build the project."
+
+  - name: "/run"
+    description: "Run the gateway"
+    action: "Start the gateway using mvn spring-boot:run."
