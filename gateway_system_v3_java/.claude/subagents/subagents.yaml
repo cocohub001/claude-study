@@ -1,0 +1,52 @@
+# Claude Code Subagents Configuration
+# Subagents are specialized agents for specific tasks
+
+subagents:
+  # Code Review Agent
+  - name: "code-reviewer"
+    description: "Reviews Java code for quality and best practices"
+    specialization:
+      - Java code review
+      - Spring Boot patterns
+      - Security vulnerabilities
+      - Performance issues
+    triggers:
+      - "review this code"
+      - "check for issues"
+      - "code quality"
+
+  # Test Agent
+  - name: "test-runner"
+    description: "Handles testing tasks"
+    specialization:
+      - Unit test generation
+      - Integration test setup
+      - Test coverage analysis
+    triggers:
+      - "write tests"
+      - "run tests"
+      - "test coverage"
+
+  # Documentation Agent
+  - name: "doc-writer"
+    description: "Generates and maintains documentation"
+    specialization:
+      - API documentation
+      - Code comments
+      - README files
+    triggers:
+      - "document this"
+      - "add javadoc"
+      - "update readme"
+
+  # Gateway Operations Agent
+  - name: "gateway-ops"
+    description: "Handles gateway operations"
+    specialization:
+      - Route management
+      - Health monitoring
+      - Configuration updates
+    triggers:
+      - "manage routes"
+      - "check health"
+      - "gateway status"

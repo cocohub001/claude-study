@@ -1,0 +1,57 @@
+# Claude Code Hooks Configuration
+# Hooks are automated actions triggered by specific events
+
+# Pre-commit hooks - Run before git commits
+pre_commit:
+  - name: "Java Code Format"
+    description: "Format Java code before commit"
+    command: "mvn spotless:apply"
+    enabled: true
+
+  - name: "Run Tests"
+    description: "Run unit tests before commit"
+    command: "mvn test -q"
+    enabled: true
+
+  - name: "Check Style"
+    description: "Check code style compliance"
+    command: "mvn checkstyle:check"
+    enabled: false  # Enable when checkstyle is configured
+
+# Post-build hooks - Run after successful builds
+post_build:
+  - name: "Generate API Docs"
+    description: "Generate OpenAPI documentation"
+    command: "mvn springdoc:generate"
+    enabled: false
+
+  - name: "Update Route Cache"
+    description: "Refresh route configuration cache"
+    command: "curl -X POST http://localhost:8080/admin/refresh"
+    enabled: false
+
+# File change hooks - Run when specific files change
+on_file_change:
+  - name: "Reload Config"
+    pattern: "src/main/resources/*.yaml"
+    description: "Reload configuration when YAML files change"
+    action: "notify"
+    message: "Configuration file changed. Consider restarting the gateway."
+
+  - name: "Update Routes"
+    pattern: "config/routes.yaml"
+    description: "Update routes when route config changes"
+    action: "run"
+    command: "curl -X POST http://localhost:8080/admin/routes/reload"
+
+# Custom event hooks
+custom:
+  - name: "Gateway Health Check"
+    trigger: "on_demand"
+    description: "Check gateway health status"
+    command: "curl http://localhost:8080/actuator/health"
+
+  - name: "Clear Cache"
+    trigger: "on_demand"
+    description: "Clear all gateway caches"
+    command: "curl -X DELETE http://localhost:8080/admin/cache"

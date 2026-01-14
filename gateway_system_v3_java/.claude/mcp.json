@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "java-gateway": {
+      "command": "python",
+      "args": ["mcp/gateway-mcp/server.py"],
+      "env": {
+        "GATEWAY_URL": "http://localhost:8080"
+      }
+    }
+  }
+}
