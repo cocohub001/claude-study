@@ -1,0 +1,30 @@
+# Claude Code Slash Commands for Go Project
+
+commands:
+  - name: "/gateway-status"
+    description: "Check gateway health"
+    action: "Check gateway health status"
+
+  - name: "/gateway-routes"
+    description: "List all routes"
+    action: "Display all configured routes"
+
+  - name: "/gateway-add-route"
+    description: "Add a new route"
+    action: "Guide through adding a new route"
+
+  - name: "/go-create-handler"
+    description: "Create a new handler"
+    action: "Generate a new Gin handler"
+
+  - name: "/go-test"
+    description: "Generate unit tests"
+    action: "Generate table-driven tests"
+
+  - name: "/build"
+    description: "Build the project"
+    action: "Run go build ./cmd/gateway"
+
+  - name: "/run"
+    description: "Run the gateway"
+    action: "Run go run ./cmd/gateway"

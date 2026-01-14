@@ -1,0 +1,31 @@
+# Claude Code Subagents Configuration for Go Project
+
+subagents:
+  - name: "code-reviewer"
+    description: "Reviews Go code for quality"
+    specialization:
+      - Go code review
+      - Concurrency patterns
+      - Error handling
+    triggers:
+      - "review this code"
+      - "check for issues"
+
+  - name: "test-runner"
+    description: "Handles testing tasks"
+    specialization:
+      - Unit test generation
+      - Table-driven tests
+      - Benchmark tests
+    triggers:
+      - "write tests"
+      - "run tests"
+
+  - name: "gateway-ops"
+    description: "Handles gateway operations"
+    specialization:
+      - Route management
+      - Health monitoring
+    triggers:
+      - "manage routes"
+      - "check health"
